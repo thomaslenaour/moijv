@@ -36,7 +36,7 @@ class Game
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
-     * @Assert\Image(mimTypes={"image/png", "image/jpeg"})
+     * @Assert\Image(mimeTypes={"image/png", "image/jpeg"})
      */
     private $image;
 
@@ -45,6 +45,12 @@ class Game
      * @ORM\JoinColumn(nullable=false)
      */
     private $user;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=Category::class, inversedBy="games")
+     * @ORM\JoinColumn(nullable=true)
+     */
+    private $category;
 
     public function getId(): ?int
     {
@@ -107,6 +113,18 @@ class Game
     public function setUser(?User $user): self
     {
         $this->user = $user;
+
+        return $this;
+    }
+
+    public function getCategory(): ?Category
+    {
+        return $this->category;
+    }
+
+    public function setCategory(?Category $category): self
+    {
+        $this->category = $category;
 
         return $this;
     }

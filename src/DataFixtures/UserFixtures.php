@@ -28,7 +28,8 @@ class UserFixtures extends Fixture
                  ->setFirstname($faker->firstName)
                  ->setLastname($faker->lastName)
                  ->setDateInscription(new \DateTime())
-                 ->setPassword($password);
+                 ->setPassword($password)
+                 ->setBiography($i % 2 !== 0 ? null : $faker->paragraph(2));
             $this->addReference('user' . $i, $user);
 
             $manager->persist($user);

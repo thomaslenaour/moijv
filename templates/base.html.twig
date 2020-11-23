@@ -38,6 +38,7 @@
 						{{ menu_link('home', 'Accueil') }}
 						{% if app.user %}
 							{{ menu_link('profile', 'Profil') }}
+							{{ menu_link('logout', 'Déconnexion') }}
 						{% else %}
 							{{ menu_link('login', 'Connexion') }}
 						{% endif %}

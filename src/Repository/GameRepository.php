@@ -28,6 +28,15 @@ class GameRepository extends ServiceEntityRepository
         return $paginator->paginate($query, $page, 9);
     }
 
+    public function getLatestPaginatedGamesByCategory(PaginatorInterface $paginator, $categoryId = 1, $page = 1) {
+        $query = $this->createQueryBuilder('g')
+            ->andWhere('g.category = ' . $categoryId)
+            ->orderBy('g.date_add', 'DESC')
+            ->getQuery();
+        
+        return $paginator->paginate($query, $page, 9);
+    }
+
     // /**
     //  * @return Game[] Returns an array of Game objects
     //  */

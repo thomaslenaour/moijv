@@ -60,6 +60,11 @@ class User implements UserInterface
      */
     private $roles = [];
 
+    /**
+     * @ORM\Column(type="text", nullable=true)
+     */
+    private $biography;
+
     public function __construct()
     {
         $this->games = new ArrayCollection();
@@ -195,6 +200,18 @@ class User implements UserInterface
     public function setRoles(array $roles): self
     {
         $this->roles = $roles;
+
+        return $this;
+    }
+
+    public function getBiography(): ?string
+    {
+        return $this->biography;
+    }
+
+    public function setBiography(?string $biography): self
+    {
+        $this->biography = $biography;
 
         return $this;
     }
