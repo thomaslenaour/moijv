@@ -25,15 +25,4 @@ class CategoryController extends AbstractController
             'games' => $games
         ]);
     }
-
-    public function showCategories()
-    {
-        $manager = $this->getDoctrine()->getManager();
-
-        $categories = $manager->getRepository('App:Social')->getAll();
-
-        return $this->render('default/social.html.twig', array(
-            'socials' => $socials,
-        ));
-    }
 }
