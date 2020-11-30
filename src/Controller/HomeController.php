@@ -25,13 +25,4 @@ class HomeController extends AbstractController
             'games' => $games
         ]);
     }
-
-    public function sideBar(CategoryRepository $categoryRepository)
-    {
-        $categories = $categoryRepository->findAll();
-        
-        return $this->render('sidebar.html.twig', [
-            'categories' => $categories,
-        ]);
-    }
 }

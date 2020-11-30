@@ -53,8 +53,10 @@
 
 			<div class="row">
 
-				<div class="col-lg-3">
-					{{ render(controller('App\\Controller\\HomeController::sideBar', {} )) }}
+				<div class="col-lg-3 my-4">
+					{% for category in category_repo.findAll() %}
+						<a href="{{ path('category', {slug: category.slug}) }}" class="list-group-item">{{ category.name }}</a>
+					{% endfor %}
 				</div>
 				<!-- /.col-lg-3 -->
 

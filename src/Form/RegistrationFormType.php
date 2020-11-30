@@ -30,7 +30,7 @@ class RegistrationFormType extends AbstractType
             ->add('email', EmailType::class, [
                 'required' => true
             ])
-            ->add('avatar', FileType::class, [
+            ->add('avatarFile', FileType::class, [
                 'required' => false
             ])
             ->add('agreeTerms', CheckboxType::class, [

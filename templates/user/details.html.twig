@@ -8,7 +8,7 @@
 {% block body %}
     <section class="row my-4">
         <div class="col-3">
-            <img class="img-fluid" src="{{ user.avatar ? asset(user.avatar) : 'http://placehold.it/300x300' }}" alt="Avatar"/>
+            <img class="img-fluid" src="{{ user.avatar ? vich_uploader_asset(user, 'avatarFile') : 'http://placehold.it/300x300' }}" alt="Avatar">
         </div>
         <div class="col-9">
             <h2>{{ user.firstname }} {{ user.lastname }}</h2>
